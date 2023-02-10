@@ -61,12 +61,7 @@ namespace Lamya.tictactoe
             }
 
 
-            //checking for draw
-            if (count >= boardCells.Length)
-            {
-                GameOver.Instance.GameEnded(0);
-                return;
-            }
+           
 
             cell.interactable = false;
             isXTurn = !isXTurn;
@@ -137,6 +132,12 @@ namespace Lamya.tictactoe
                 y--;
             }
 
+            //checking for draw
+            if (count >= boardCells.Length)
+            {
+                GameOver.Instance.GameEnded(0);
+                return;
+            }
 
         }
 
