@@ -14,25 +14,18 @@ namespace Lamya.tictactoe
 
         [SerializeField] private Sprite muteSprite;
         [SerializeField] private Sprite unmuteSprite;
-
-
-        private AudioSource audiosource;
-
-        private void Start()
-        {
-            audiosource = GetComponent<AudioSource>();
-        }
+       
 
         public void Switch()
         {
-            if (audiosource.isPlaying)
+            if (Audio.Instance.AudioSource.isPlaying)
             {
-                audiosource.Pause();
+                Audio.Instance.AudioSource.Pause();
                 gameObject.GetComponent<Image>().sprite = unmuteSprite;
             }
             else
             {
-                audiosource.Play();
+                Audio.Instance.AudioSource.Play();
                 gameObject.GetComponent<Image>().sprite = muteSprite;
             }
         }

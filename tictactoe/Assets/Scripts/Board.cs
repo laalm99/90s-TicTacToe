@@ -12,7 +12,7 @@ namespace Lamya.tictactoe
 
         public static Board Instance;
 
-        [SerializeField] private static int size = 3;
+        private static int size = 3;
         private bool isXTurn = true;
         [SerializeField] private Sprite xSprite;
         [SerializeField] private Sprite oSprite;
@@ -47,8 +47,6 @@ namespace Lamya.tictactoe
         {
             count++;
 
-
-
             if (isXTurn)
             {
                 cell.GetComponent<Button>().image.sprite = xSprite;
@@ -59,9 +57,6 @@ namespace Lamya.tictactoe
                 cell.GetComponent<Button>().image.sprite = oSprite;
                 boardCells[(int)pos.x, (int)pos.y] = -1;
             }
-
-
-           
 
             cell.interactable = false;
             isXTurn = !isXTurn;
@@ -78,14 +73,17 @@ namespace Lamya.tictactoe
             int sumFDiagonal = 0;
             int sumBDiagonal = 0;
 
-
-
             for (int i = 0; i < boardCells.GetLength(0); i++)
             {
                 for (int j = 0; j < boardCells.GetLength(0); j++)
                 {
+                    //check rows
                     sumRow += boardCells[i, j];
+
+                    //check columns
                     sumCol += boardCells[j, i];
+
+                    //check diagonal
                     sumFDiagonal += boardCells[j, j];
 
                 }
@@ -109,8 +107,7 @@ namespace Lamya.tictactoe
                 sumFDiagonal = 0;
             }
 
-            //sum of counter diagonal
-
+            //check counter diagonal
             int y = boardCells.GetLength(0) - 1;
 
             for (int j = 0; j < boardCells.GetLength(0); j++)

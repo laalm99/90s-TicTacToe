@@ -8,7 +8,8 @@ namespace Lamya.tictactoe
     public class Audio : MonoBehaviour
     {
         public static Audio Instance;
-
+        private AudioSource audioSource;
+        public AudioSource AudioSource => audioSource;
 
         private void Awake()
         {
@@ -20,11 +21,12 @@ namespace Lamya.tictactoe
                 Destroy(gameObject);
         }
 
+
         // Start is called before the first frame update
         void Start()
         {
             DontDestroyOnLoad(this.gameObject);
-           
+            audioSource = GetComponent<AudioSource>();
         }
 
       
