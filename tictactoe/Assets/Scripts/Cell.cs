@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 namespace Lamya.tictactoe
 {
-    public class Call : MonoBehaviour
+    [RequireComponent(typeof(Button))]
+    public class Cell : MonoBehaviour
     {
         [SerializeField] private Vector2 cellPosition;
         [SerializeField] private Button button;
